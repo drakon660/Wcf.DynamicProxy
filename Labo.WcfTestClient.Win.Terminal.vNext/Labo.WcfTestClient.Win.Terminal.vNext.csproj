@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <OutputType>Exe</OutputType>
+        <TargetFramework>net6.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+        <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Labo.ServiceModel.Core.vNext\Labo.ServiceModel.Core.vNext.csproj" />
+      <ProjectReference Include="..\Labo.ServiceModel.DynamicProxy.vNext\Labo.ServiceModel.DynamicProxy.vNext.csproj" />
+    </ItemGroup>
+
+</Project>
