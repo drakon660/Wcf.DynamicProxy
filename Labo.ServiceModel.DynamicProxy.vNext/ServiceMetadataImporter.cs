@@ -1,10 +1,12 @@
 ﻿using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.Collections.ObjectModel;
-using System.Runtime.Serialization;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.Xml.Serialization;
+using Microsoft.CodeDom;
+using Microsoft.CodeDom.Compiler;
+using DcNS = System.Runtime.Serialization;
 
 namespace Labo.ServiceModel.DynamicProxy
 {
@@ -24,6 +26,7 @@ namespace Labo.ServiceModel.DynamicProxy
             CodeDomProvider codeDomProvider = m_CodeDomProviderFactory.CreateProvider();
             
             WsdlImporter importer = new WsdlImporter(new MetadataSet(metadataCollection));
+            
             switch (formatMode)
             {
                 case MetadataImporterSerializerFormatMode.DataContractSerializer:
@@ -97,9 +100,9 @@ namespace Labo.ServiceModel.DynamicProxy
             MetadataImporterSerializerFormatMode formatMode, CodeCompileUnit codeCompileUnit,
             CodeDomProvider codeDomProvider)
         {
-            XsdDataContractImporter xsdDataContractImporter = new XsdDataContractImporter(codeCompileUnit);
+            DcNS.XsdDataContractImporter xsdDataContractImporter = new DcNS.XsdDataContractImporter(codeCompileUnit);
             xsdDataContractImporter.Options = CreateDataContractImportOptions(formatMode, codeDomProvider);
-            importer.State.Add(typeof(XsdDataContractImporter), xsdDataContractImporter);
+            importer.State.Add(typeof(DcNS.XsdDataContractImporter), xsdDataContractImporter);
             
             for (int i = 0; i < importer.WsdlImportExtensions.Count; i++)
             {
@@ -115,10 +118,10 @@ namespace Labo.ServiceModel.DynamicProxy
             }
         }
 
-        private static ImportOptions CreateDataContractImportOptions(MetadataImporterSerializerFormatMode formatMode,
+        private static DcNS.ImportOptions CreateDataContractImportOptions(MetadataImporterSerializerFormatMode formatMode,
             CodeDomProvider codeDomProvider)
         {
-            ImportOptions importOptions = new ImportOptions();
+            DcNS.ImportOptions importOptions = new DcNS.ImportOptions();
             importOptions.GenerateSerializable = true;
             importOptions.GenerateInternal = false;
             importOptions.ImportXmlType = formatMode == MetadataImporterSerializerFormatMode.DataContractSerializer;

@@ -1,4 +1,4 @@
-using System.CodeDom.Compiler;
+using Microsoft.CodeDom.Compiler;
 using Microsoft.CSharp;
 
 namespace Labo.ServiceModel.DynamicProxy

@@ -1,4 +1,3 @@
-using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
@@ -8,10 +7,11 @@ using System.Configuration;
 using System.Data;
 using System.IO;
 using System.Reflection;
-using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Description;
 using System.Xml;
+using Microsoft.CodeDom;
+using Microsoft.CodeDom.Compiler;
 
 namespace Labo.ServiceModel.DynamicProxy
 {
@@ -23,7 +23,7 @@ namespace Labo.ServiceModel.DynamicProxy
             CodeCompileUnit codeCompileUnit = serviceMetadataInfo.CodeCompileUnit;
             //ServiceContractGenerator contractGenerator = new ServiceContractGenerator(codeCompileUnit, CreateConfig(new FileInfo(tempConfigFileName)));
             ServiceContractGenerator contractGenerator = new ServiceContractGenerator(codeCompileUnit);
-            contractGenerator.Options |= ServiceContractGenerationOptions.ClientClass;
+            //contractGenerator.Options |= ServiceContractGenerationOptions.ClientClass;
 
             for (int i = 0; i < serviceMetadataInfo.Contracts.Count; i++)
             {
@@ -57,7 +57,7 @@ namespace Labo.ServiceModel.DynamicProxy
 
             AddAssemblyReference(typeof(ServiceContractAttribute).Assembly, compilerParameters.ReferencedAssemblies);
             //AddAssemblyReference(typeof(System.Web.Services.Description.ServiceDescription).Assembly, compilerParameters.ReferencedAssemblies);
-            AddAssemblyReference(typeof(DataContractAttribute).Assembly, compilerParameters.ReferencedAssemblies);
+            //AddAssemblyReference(typeof(DataContractAttribute).Assembly, compilerParameters.ReferencedAssemblies);
             AddAssemblyReference(typeof(XmlElement).Assembly, compilerParameters.ReferencedAssemblies);
             AddAssemblyReference(typeof(Uri).Assembly, compilerParameters.ReferencedAssemblies);
             AddAssemblyReference(typeof(DataSet).Assembly, compilerParameters.ReferencedAssemblies);

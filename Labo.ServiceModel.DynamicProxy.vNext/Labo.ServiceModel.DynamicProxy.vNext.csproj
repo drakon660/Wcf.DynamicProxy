@@ -1,21 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net6.0</TargetFramework>
+        <TargetFramework>netstandard2.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>enable</Nullable>
+        <LangVersion>10</LangVersion>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <NoWarn>;1701;1702;1705;1591;CS0108;CS0219;CS0168;CS0169;CS0414;CS0436;CS0649;NU5105;IL2121</NoWarn>
     </PropertyGroup>
     
-    <ItemGroup>
-      <PackageReference Include="System.CodeDom" Version="6.0.0" />
-      <PackageReference Include="System.Private.ServiceModel" Version="4.10.0" />
-      <PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
-      <PackageReference Include="System.ServiceModel.NetTcp" Version="4.10.0" />
-      <PackageReference Include="System.ServiceModel.Primitives" Version="4.10.0" />
-      <PackageReference Include="System.ServiceModel.Security" Version="4.10.0" />
-    </ItemGroup>
     
     <ItemGroup>
-      <ProjectReference Include="..\Labo.ServiceModel.Core.vNext\Labo.ServiceModel.Core.vNext.csproj" />
+<!--      <ProjectReference Include="..\Labo.ServiceModel.Core.vNext\Labo.ServiceModel.Core.vNext.csproj" />-->
+      <ProjectReference Include="..\Microsoft.CodeDom\Microsoft.CodeDom.csproj" />
+      <ProjectReference Include="..\System.ServiceModel\System.ServiceModel.csproj" />
+      <ProjectReference Include="..\System.Web.Services\System.Web.Services.csproj" />
     </ItemGroup>
 </Project>

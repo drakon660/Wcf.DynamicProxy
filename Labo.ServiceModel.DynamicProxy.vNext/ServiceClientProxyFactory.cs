@@ -1,11 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
 using System.Xml;
-using Labo.ServiceModel.Core.Utils.Reflection;
+//using Labo.ServiceModel.Core.Utils.Reflection;
 
 namespace Labo.ServiceModel.DynamicProxy
 {
@@ -85,28 +83,29 @@ namespace Labo.ServiceModel.DynamicProxy
 
         private static Type GetServiceContractType(string contractName, string contractNamespace, Type[] assemblyTypes)
         {
-            for (int i = 0; i < assemblyTypes.Length; i++)
-            {
-                Type type = assemblyTypes[i];
-                if (!type.IsInterface)
-                {
-                    continue;
-                }
-                
-                ServiceContractAttribute serviceContractAttribute = ReflectionUtils.GetCustomAttribute<ServiceContractAttribute>(type);
-                if (serviceContractAttribute == null)
-                {
-                    continue;
-                }
-
-                XmlQualifiedName xmlQualifiedServiceContractName = GetServiceContractName(type, serviceContractAttribute.Name, serviceContractAttribute.Namespace);
-
-                if (string.Compare(xmlQualifiedServiceContractName.Name, contractName, StringComparison.OrdinalIgnoreCase) == 0 &&
-                    string.Compare(xmlQualifiedServiceContractName.Namespace, contractNamespace, StringComparison.OrdinalIgnoreCase) == 0)
-                {
-                    return type;
-                }
-            }
+            throw new NotImplementedException();
+            // for (int i = 0; i < assemblyTypes.Length; i++)
+            // {
+            //     Type type = assemblyTypes[i];
+            //     if (!type.IsInterface)
+            //     {
+            //         continue;
+            //     }
+            //     
+            //     ServiceContractAttribute serviceContractAttribute = ReflectionUtils.GetCustomAttribute<ServiceContractAttribute>(type);
+            //     if (serviceContractAttribute == null)
+            //     {
+            //         continue;
+            //     }
+            //
+            //     XmlQualifiedName xmlQualifiedServiceContractName = GetServiceContractName(type, serviceContractAttribute.Name, serviceContractAttribute.Namespace);
+            //
+            //     if (string.Compare(xmlQualifiedServiceContractName.Name, contractName, StringComparison.OrdinalIgnoreCase) == 0 &&
+            //         string.Compare(xmlQualifiedServiceContractName.Namespace, contractNamespace, StringComparison.OrdinalIgnoreCase) == 0)
+            //     {
+            //         return type;
+            //     }
+            // }
 
             return null;
         }

@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+      <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <EmbeddedResource Update="Resources\SR_IdentityModel.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>SR_IdentityModel.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+      <EmbeddedResource Update="Resources\SRServiceModel.resx">
+          <Generator>ResXFileCodeGenerator</Generator>
+          <LastGenOutput>SRServiceModel.Designer.cs</LastGenOutput>
+      </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Compile Update="Resources\SRServiceModel.Designer.cs">
+          <DesignTime>True</DesignTime>
+          <AutoGen>True</AutoGen>
+          <DependentUpon>SRServiceModel.resx</DependentUpon>
+        </Compile>
+        <Compile Update="Resources\SR_IdentityModel.Designer.cs">
+            <DesignTime>True</DesignTime>
+            <AutoGen>True</AutoGen>
+            <DependentUpon>SR_IdentityModel.resx</DependentUpon>
+        </Compile>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Microsoft.CodeDom\Microsoft.CodeDom.csproj" />
+      <ProjectReference Include="..\Microsoft.Xml\Microsoft.Xml.csproj" />
+      <ProjectReference Include="..\System.Extensions.Resources\System.Extensions.Resources.csproj" />
+      <ProjectReference Include="..\System.Runtime.Serialization\System.Runtime.Serialization.csproj" />
+      <ProjectReference Include="..\System.Web.Services\System.Web.Services.csproj" />
+
+    </ItemGroup>
+    <ItemGroup>
+        <!-- Be careful when adding package references. They should be the lowest package version for the framework supported by the tool. 
+          If the tool is used on a project with a reference to a lower version the bootstrapper will fail with a nuget package downgrade error. -->
+        <PackageReference Include="System.Reflection.DispatchProxy" Version="4.4.0" />
+    </ItemGroup>
+
+    
+</Project>

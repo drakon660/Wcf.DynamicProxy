@@ -51,7 +51,8 @@ namespace Labo.ServiceModel.DynamicProxy
 
             Collection<Binding> bindings = importer.ImportAllBindings();
             Collection<ContractDescription> contracts = importer.ImportAllContracts();
-            ServiceEndpointCollection endpoints = importer.ImportAllEndpoints();
+            //ServiceEndpointCollection endpoints = importer.ImportAllEndpoints();
+            Collection<ServiceEndpoint> endpoints = importer.ImportAllEndpoints();
             Collection<MetadataConversionError> importErrors = importer.Errors;
 
             bool success = true;

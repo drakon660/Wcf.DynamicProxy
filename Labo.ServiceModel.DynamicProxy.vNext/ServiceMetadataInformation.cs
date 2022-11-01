@@ -1,9 +1,10 @@
-using System;
 using System.CodeDom;
 using System.CodeDom.Compiler;
 using System.Collections.ObjectModel;
 using System.ServiceModel.Channels;
 using System.ServiceModel.Description;
+using Microsoft.CodeDom;
+using Microsoft.CodeDom.Compiler;
 
 namespace Labo.ServiceModel.DynamicProxy
 {

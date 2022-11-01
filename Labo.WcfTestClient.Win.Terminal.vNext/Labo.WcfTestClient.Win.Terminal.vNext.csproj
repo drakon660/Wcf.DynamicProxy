@@ -9,7 +9,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Labo.ServiceModel.Core.vNext\Labo.ServiceModel.Core.vNext.csproj" />
+<!--      <ProjectReference Include="..\Labo.ServiceModel.Core.vNext\Labo.ServiceModel.Core.vNext.csproj" />-->
       <ProjectReference Include="..\Labo.ServiceModel.DynamicProxy.vNext\Labo.ServiceModel.DynamicProxy.vNext.csproj" />
     </ItemGroup>
 
